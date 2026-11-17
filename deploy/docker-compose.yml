@@ -1,0 +1,32 @@
+services:
+  asitec-ro:
+    image: ghcr.io/unknown-error-maker/asitec-bms:latest
+    env_file: .env
+    environment:
+      PORT: "3000"
+      TRUST_PROXY: "true"
+      ALLOWED_ORIGINS: "https://${DOMAIN},https://www.${DOMAIN}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
+      - "traefik.http.routers.asitec-main.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.asitec-main.entrypoints=https"
+      - "traefik.http.routers.asitec-main.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.asitec-main.service=asitec"
+      - "traefik.http.routers.asitec-main.middlewares=secure-headers@file"
+      - "traefik.http.routers.asitec-www.rule=Host(`www.${DOMAIN}`)"
+      - "traefik.http.routers.asitec-www.entrypoints=https"
+      - "traefik.http.routers.asitec-www.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.asitec-www.middlewares=www-to-non-www@docker,secure-headers@file"
+      - "traefik.http.routers.asitec-www.service=asitec"
+      - "traefik.http.services.asitec.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.www-to-non-www.redirectregex.regex=^https://www\\.(.+)"
+      - "traefik.http.middlewares.www-to-non-www.redirectregex.replacement=https://$${1}"
+      - "traefik.http.middlewares.www-to-non-www.redirectregex.permanent=true"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

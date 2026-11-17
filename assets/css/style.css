@@ -172,13 +172,21 @@ section.sec{padding-block:clamp(72px,9vw,120px)}
 .details div{display:grid;grid-template-columns:100px 1fr;gap:12px;padding-block:14px;border-top:1px solid rgba(255,255,255,.12)}
 .details dt{color:var(--on-green-muted);font-weight:600;font-size:.92rem}
 .details dd{margin:0;font-weight:600}
+.call a,.details a{text-decoration:none}
+.call a:hover,.details a:hover{text-decoration:underline;text-underline-offset:4px}
 form.quote{background:#fff;color:var(--ink);border-radius:var(--r-md);padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:grid;gap:7px}
+.field{display:grid;gap:7px;align-content:start}
 .field.full{grid-column:1/-1}
 .field > label,.field > span{font-size:.85rem;font-weight:700}
-.field input,.field textarea{font:inherit;font-size:.98rem;color:var(--ink);background:var(--panel);border:1.5px solid transparent;border-radius:12px;padding:13px 14px;width:100%}
+.field input,.field textarea{font:inherit;font-size:.98rem;color:var(--ink);background:#fff;border:1.5px solid #CFD6D1;border-radius:12px;padding:13px 14px;width:100%;transition:border-color .15s ease,box-shadow .15s ease}
+.field input::placeholder,.field textarea::placeholder{color:#8A948F}
 .field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--green);background:#fff}
+.field input:hover,.field textarea:hover{border-color:#9AA69F}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--lime-soft)}
+.field .is-invalid,.field .is-invalid:hover{border-color:#B3261E}
+.field .is-invalid:focus{border-color:#B3261E;box-shadow:0 0 0 3px #F6DEDC}
+.field-error{margin:0;color:#B3261E;font-size:.82rem;font-weight:600}
+.field.is-hidden{visibility:hidden}
 .seg{display:inline-flex;gap:4px;padding:4px;background:var(--panel);border-radius:999px;justify-self:start}
 .seg label{position:relative;cursor:pointer}
 .seg input{position:absolute;opacity:0;pointer-events:none}
@@ -189,7 +197,7 @@ form.quote{background:#fff;color:var(--ink);border-radius:var(--r-md);padding:cl
 .form-foot small{color:var(--muted);font-size:.82rem;max-width:24em}
 .status{grid-column:1/-1;padding:13px 16px;border-radius:12px;background:var(--lime-soft);font-size:.93rem}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
-@media (max-width:540px){form.quote{grid-template-columns:1fr}.details div{grid-template-columns:1fr;gap:2px}}
+@media (max-width:540px){form.quote{grid-template-columns:1fr}.field.is-hidden{display:none}.details div{grid-template-columns:1fr;gap:2px}}
 
 footer.foot{background:var(--night);color:#C9D4CE;margin-top:16px;padding-block:56px 40px}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}

@@ -172,7 +172,7 @@
         <span class="eyebrow">Daune</span>
         <h2>Ce faci când apare o daună</h2>
         <p class="lead">Un incendiu la depozit, marfă avariată pe drum, un accident cu o mașină din flotă. Primele ore contează.</p>
-        <div class="call"><span>Linie daune</span><b><span class="ph">telefon</span></b></div>
+        <div class="call"><span>Linie daune</span><b><a href="tel:+40723761234">+40 723 761 234</a></b></div>
       </div>
       <ol>
         <li><div><h3>Oprește extinderea pagubei</h3><p>Pune oamenii în siguranță și anunță autoritățile: 112, Poliția sau ISU, după caz.</p></div></li>
@@ -211,9 +211,8 @@
           <h2>Cere o ofertă</h2>
           <p class="lead">Spune-ne pe scurt ce face firma sau ce vrei să asiguri. Te contactăm noi pentru detalii.</p>
           <dl class="details">
-            <div><dt>Adresă</dt><dd>Bulevardul Constantin Brâncoveanu 86, 300425 Timișoara</dd></div>
-            <div><dt>Telefon</dt><dd><span class="ph">telefon</span></dd></div>
-            <div><dt>E-mail</dt><dd><span class="ph">e-mail</span></dd></div>
+            <div><dt>Adresă</dt><dd>Bulevardul Constantin Brâncoveanu 86, Timișoara</dd></div>
+            <div><dt>Telefon</dt><dd><a href="tel:+40723761234">+40 723 761 234</a></dd></div>
             <div><dt>Program</dt><dd>De luni până vineri, 9:00-18:00</dd></div>
           </dl>
         </div>
@@ -221,35 +220,35 @@
           <div class="field full">
             <span>Cerere pentru</span>
             <div class="seg">
-              <label><input type="radio" name="client" id="client-pj" value="pj" checked><span>Firmă</span></label>
-              <label><input type="radio" name="client" id="client-pf" value="pf"><span>Persoană fizică</span></label>
+              <label><input class="client" type="radio" name="client" value="pj" checked><span>Firmă</span></label>
+              <label><input class="client" type="radio" name="client" value="pf"><span>Persoană fizică</span></label>
             </div>
           </div>
-          <div class="field">
-            <label for="nume">Nume</label>
-            <input id="nume" name="nume" autocomplete="name" required>
-          </div>
-          <div class="field" id="firma-field">
-            <label for="firma">Firmă</label>
-            <input id="firma" name="firma" autocomplete="organization">
-          </div>
-          <div class="field">
-            <label for="telefon">Telefon</label>
-            <input id="telefon" name="telefon" type="tel" autocomplete="tel" required>
-          </div>
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email">
-          </div>
-          <div class="field full">
-            <label for="mesaj">Ce vrei să asigurăm</label>
-            <textarea id="mesaj" name="mesaj" placeholder="De exemplu: firmă de distribuție, depozit în Timișoara, 8 mașini de livrare, polițele expiră în martie."></textarea>
-          </div>
+          <label class="field">
+            <span>Nume</span>
+            <input class="nume" name="nume" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Firmă</span>
+            <input class="firma" name="firma" autocomplete="organization">
+          </label>
+          <label class="field">
+            <span>Telefon</span>
+            <input class="telefon" name="telefon" type="tel" autocomplete="tel" required>
+          </label>
+          <label class="field">
+            <span>E-mail</span>
+            <input class="email" name="email" type="email" autocomplete="email">
+          </label>
+          <label class="field full">
+            <span>Ce vrei să asigurăm</span>
+            <textarea class="mesaj" name="mesaj" placeholder="De exemplu: firmă de distribuție, depozit în Timișoara, 8 mașini de livrare, polițele expiră în martie."></textarea>
+          </label>
           <div class="form-foot">
             <small>Folosim datele doar ca să te contactăm pentru ofertă.</small>
             <button class="btn green" type="submit">Trimite cererea <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></button>
           </div>
-          <p class="status" id="form-status" role="status" hidden></p>
+          <p class="status form-status" role="status" hidden></p>
         </form>
       </div>
     </section>
@@ -284,9 +283,8 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><span class="ph">telefon</span></li>
-          <li><span class="ph">e-mail</span></li>
-          <li>Timișoara, jud. Timiș</li>
+          <li><a href="tel:+40723761234">+40 723 761 234</a></li>
+          <li>Bulevardul Constantin Brâncoveanu 86, Timișoara</li>
         </ul>
       </div>
     </div>
@@ -300,6 +298,7 @@
   </div>
 </footer>
 
+<script src="vendor/just-validate.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
